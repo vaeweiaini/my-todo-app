@@ -20,7 +20,8 @@ describe('TodoList component', () => {
     fireEvent.change(input, { target: { value: 'Check this' } });
     fireEvent.keyDown(input, { key: 'Enter' });
 
-    const todoItem = screen.getByText('Check this').closest('.todo-item') as HTMLElement;
+    const todoText = screen.getByText('Check this');
+    const todoItem = todoText.parentElement as HTMLElement;
     expect(todoItem).toBeInTheDocument();
 
     const checkbox = within(todoItem).getByRole('checkbox');
@@ -34,7 +35,8 @@ describe('TodoList component', () => {
     fireEvent.change(input, { target: { value: 'Delete me' } });
     fireEvent.keyDown(input, { key: 'Enter' });
 
-    const todoItem = screen.getByText('Delete me').closest('.todo-item') as HTMLElement;
+    const todoText = screen.getByText('Delete me');
+    const todoItem = todoText.parentElement as HTMLElement;
     expect(todoItem).toBeInTheDocument();
 
     const deleteButton = within(todoItem).getByRole('button', { name: /delete/i });

@@ -1,0 +1,17 @@
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.inputGroup input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.inputGroup button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
