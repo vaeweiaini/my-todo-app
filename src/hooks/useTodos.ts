@@ -1,9 +1,22 @@
-import { useState } from 'react';
-import type { TodoItem } from '../types/todo';
+import { useEffect, useState } from 'react';
+import type{ TodoItem } from '../types/todo';
+
+const STORAGE_KEY = 'my-todo-list';
 
 export function useTodos() {
-  const [todos, setTodos] = useState<TodoItem[]>([]);
-  const [nextId, setNextId] = useState(1);
+  const [todos, setTodos] = useState<TodoItem[]>(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  const [nextId, setNextId] = useState(() => {
+    const maxId = todos.reduce((max, item) => Math.max(max, item.id), 0);
+    return maxId + 1;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (text: string) => {
     setTodos(prev => [...prev, { id: nextId, text, done: false }]);
