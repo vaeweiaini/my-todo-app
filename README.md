@@ -13,13 +13,20 @@ A simple yet fully functional To-Do List application built with **React + TypeSc
    git clone https://github.com/vaeweiaini/my-todo-app.git
    
    cd my-todo-app
+   
+2. **Install dependencies**
+   ```bash
+   npm install
+   
 
 2.**Install dependencies**
    ```bash
-    npm install
+   npm install
 
 3.**Run the app**
-```bash
+	```bash
+    ```bash
+   npm install
     npm run dev
 
 4.**Run tests**
