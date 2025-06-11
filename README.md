@@ -14,13 +14,16 @@ A simple yet fully functional To-Do List application built with **React + TypeSc
    
    cd my-todo-app
 
-2.	Install dependencies
+2.	**Install dependencies**
+   ```bash
     npm install
 
-3.	Run the app
+4.	**Run the app**
+```bash
     npm run dev
 
-4.	Run tests
+5.	Run tests
+```bash
     npx vitest
 
 ## ✅ Features
