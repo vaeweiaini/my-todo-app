@@ -17,21 +17,16 @@ A simple yet fully functional To-Do List application built with **React + TypeSc
 2. **Install dependencies**
    ```bash
    npm install
+
+3. **Run the app**
+   ```bash
+   npm run dev
+   
+4. **Run tests**
+   ```bash
+   npx vitest
    
 
-2.**Install dependencies**
-   ```bash
-   npm install
-
-3.**Run the app**
-	```bash
-    ```bash
-   npm install
-    npm run dev
-
-4.**Run tests**
-```bash
-    npx vitest
 
 ## ✅ Features
 	•	Add new tasks
