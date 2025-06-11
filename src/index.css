@@ -1,0 +1,88 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  background: #f6f8fa;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.container {
+  background: white;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* ⬇️ 输入框 + 添加按钮一行 */
+.todo-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.todo-input-group input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.todo-input-group button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.todo-input-group button:hover {
+  background-color: #0056b3;
+}
+
+/* ⬇️ 每一行任务项目 */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.todo-item span.done {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.todo-item input[type="text"] {
+  flex-grow: 1;
+  font-size: 1rem;
+  padding: 6px;
+}
+
+.todo-item button {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}

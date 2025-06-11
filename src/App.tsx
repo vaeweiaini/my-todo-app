@@ -1,9 +1,10 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import './index.css'; 
 
 const App: React.FC = () => {
   return (
-    <div style={{ padding: '1rem', maxWidth: '600px', margin: 'auto' }}>
+    <div className="container">
       <h1>To-Do List</h1>
       <TodoList />
     </div>

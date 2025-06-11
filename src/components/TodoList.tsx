@@ -15,20 +15,19 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div>
-      <div style={{ marginBottom: 12 }}>
-        <input
-          type="text"
-          value={newText}
-          onChange={(e) => setNewText(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') handleAdd();
-          }}
-          placeholder="Add a new task"
-          style={{ width: '80%', marginRight: 8 }}
-        />
-        <button onClick={handleAdd}>Add</button>
-      </div>
+    <>
+      <div className="todo-input-group">
+  <input
+    type="text"
+    value={newText}
+    onChange={(e) => setNewText(e.target.value)}
+    onKeyDown={(e) => {
+      if (e.key === 'Enter') handleAdd();
+    }}
+    placeholder="Add a new task"
+  />
+  <button onClick={handleAdd}>Add</button>
+</div>
 
       {todos.map((todo) => (
         <TodoItem
@@ -39,7 +38,7 @@ const TodoList: React.FC = () => {
           onEdit={(text) => editTodo(todo.id, text)}
         />
       ))}
-    </div>
+    </>
   );
 };
 

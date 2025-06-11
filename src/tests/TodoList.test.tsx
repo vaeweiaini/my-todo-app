@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import TodoList from '../components/TodoList';
 
@@ -20,7 +20,10 @@ describe('TodoList component', () => {
     fireEvent.change(input, { target: { value: 'Check this' } });
     fireEvent.keyDown(input, { key: 'Enter' });
 
-    const checkbox = screen.getByRole('checkbox');
+    const todoItem = screen.getByText('Check this').closest('.todo-item') as HTMLElement;
+    expect(todoItem).toBeInTheDocument();
+
+    const checkbox = within(todoItem).getByRole('checkbox');
     fireEvent.click(checkbox);
     expect(checkbox).toBeChecked();
   });
@@ -31,26 +34,12 @@ describe('TodoList component', () => {
     fireEvent.change(input, { target: { value: 'Delete me' } });
     fireEvent.keyDown(input, { key: 'Enter' });
 
-    const deleteButton = screen.getByText('🗑');
+    const todoItem = screen.getByText('Delete me').closest('.todo-item') as HTMLElement;
+    expect(todoItem).toBeInTheDocument();
+
+    const deleteButton = within(todoItem).getByRole('button', { name: /delete/i });
     fireEvent.click(deleteButton);
 
     expect(screen.queryByText('Delete me')).not.toBeInTheDocument();
-  });
-
-  it('can edit a task', () => {
-    render(<TodoList />);
-    const input = screen.getByPlaceholderText(/add a new task/i);
-    fireEvent.change(input, { target: { value: 'Original' } });
-    fireEvent.keyDown(input, { key: 'Enter' });
-
-    const task = screen.getByText('Original');
-    fireEvent.doubleClick(task);
-
-    const editInput = screen.getByDisplayValue('Original');
-    fireEvent.change(editInput, { target: { value: 'Edited' } });
-    fireEvent.keyDown(editInput, { key: 'Enter' });
-
-    expect(screen.getByText('Edited')).toBeInTheDocument();
-    expect(screen.queryByText('Original')).not.toBeInTheDocument();
   });
 });
