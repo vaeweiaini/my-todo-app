@@ -10,7 +10,8 @@ A simple yet fully functional To-Do List application built with **React + TypeSc
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/my-todo-app.git
+   git clone https://github.com/vaeweiaini/my-todo-app.git
+   
    cd my-todo-app
 
 2.	Install dependencies
